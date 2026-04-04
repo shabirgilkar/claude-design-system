@@ -1,0 +1,60 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-spacing-component-2xs);
+  padding: var(--ds-spacing-component-2xs);
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--ds-color-border-default);
+  background: var(--ds-color-bg-surface);
+  cursor: pointer;
+  transition: border-color var(--ds-duration-fast) var(--ds-easing-standard),
+              background-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.toggle:hover {
+  border-color: var(--ds-color-border-strong);
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--ds-color-border-focus);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ds-radius-pill);
+  color: var(--ds-color-fg-subtle);
+  transition: color var(--ds-duration-fast) var(--ds-easing-standard),
+              background-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.icon.active {
+  background: var(--ds-color-bg-brand);
+  color: var(--ds-color-fg-on-brand);
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Sizes */
+.sm .icon {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+}
+
+.md .icon {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+}
+
+.lg .icon {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+}

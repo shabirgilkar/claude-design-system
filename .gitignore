@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+ds/node_modules/
+
+# Build outputs
+ds/dist/
+ds/storybook-static/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Claude local state
+.claude/projects/
+.claude/launch.json
+.claude/settings.local.json
+.claude/todolist.md
+ds/.claude/
+
+# Figma MCP local config
+.mcp.json
+
+# External repos
+GitHub/
+
+# Coverage
+coverage/
+
+# Temp
+tmp/
+.tmp/

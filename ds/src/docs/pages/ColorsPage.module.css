@@ -1,0 +1,215 @@
+.swatchRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 110px));
+  gap: var(--ds-spacing-component-sm);
+}
+
+/* ── Swatch Card ─────────────────────────────────────────────────────────── */
+.swatchCard {
+  border-radius: var(--ds-radius-lg);
+  border: 1px solid var(--ds-color-border-subtle);
+  background-color: var(--ds-color-bg-surface);
+  overflow: hidden;
+  position: relative;
+  transition:
+    transform 220ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 220ms ease,
+    border-color 150ms ease;
+}
+
+.swatchCard:hover {
+  transform: translateY(-8px) scale(1.06);
+  box-shadow: var(--ds-shadow-4);
+  border-color: var(--ds-color-border-strong);
+  z-index: 2;
+}
+
+/* ── Color block ─────────────────────────────────────────────────────────── */
+.swatchColor {
+  height: 120px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.swatchStop {
+  font-family: var(--ds-font-family-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+  line-height: 1;
+}
+
+/* ── Hover copy overlay ──────────────────────────────────────────────────── */
+.swatchOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 8px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.swatchCard:hover .swatchOverlay {
+  opacity: 1;
+}
+
+.copyBtn {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--ds-radius-sm);
+  color: var(--ds-color-fg-on-dark);
+  font-family: var(--ds-font-family-mono);
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+}
+
+.copyBtn:hover {
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.copyBtnSuccess {
+  background: rgba(56, 161, 105, 0.4);
+  border-color: rgba(56, 161, 105, 0.6);
+}
+
+.copyIcon {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ── Meta area ───────────────────────────────────────────────────────────── */
+.swatchMeta {
+  padding: 7px 9px 8px;
+  background-color: var(--ds-color-bg-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.swatchHexValue {
+  font-family: var(--ds-font-family-mono);
+  font-size: 9px;
+  color: var(--ds-color-fg-default);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.swatchRgbValue {
+  font-family: var(--ds-font-family-mono);
+  font-size: 8px;
+  color: var(--ds-color-fg-subtle);
+  line-height: 1.3;
+}
+
+.swatchA11y {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 2px;
+  border-top: 1px solid var(--ds-color-border-subtle);
+  padding-top: 5px;
+}
+
+/* ── A11y badges ─────────────────────────────────────────────────────────── */
+.a11yBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--ds-font-family-mono);
+  font-size: 8px;
+  font-weight: 600;
+  padding: 2px 5px;
+  border-radius: var(--ds-radius-pill);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.a11yPass {
+  background-color: var(--ds-color-status-success-bg);
+  color: var(--ds-color-status-success-fg);
+  border: 1px solid var(--ds-color-status-success-border);
+}
+
+.a11yFail {
+  background-color: var(--ds-color-bg-overlay);
+  color: var(--ds-color-fg-subtle);
+  border: 1px solid var(--ds-color-border-subtle);
+}
+
+.a11yDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Accessibility reference ─────────────────────────────────────────────── */
+.a11yNote {
+  background-color: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-spacing-inset-lg);
+}
+
+.a11yHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ds-spacing-component-lg);
+  margin-bottom: var(--ds-spacing-component-lg);
+}
+
+.a11yHeaderIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.a11yHeader strong {
+  font-size: var(--ds-font-size-body);
+  color: var(--ds-color-fg-default);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.a11yHeader p {
+  font-size: var(--ds-font-size-footnote);
+  color: var(--ds-color-fg-muted);
+}
+
+.a11yLegend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ds-spacing-component-sm) var(--ds-spacing-inset-lg);
+}
+
+.a11yLegendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-spacing-component-sm);
+}
+
+.a11yLegendText {
+  font-size: var(--ds-font-size-footnote);
+  color: var(--ds-color-fg-muted);
+}

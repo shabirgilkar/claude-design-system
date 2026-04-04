@@ -1,0 +1,74 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-body);
+  line-height: var(--ds-line-height-body);
+  font-weight: var(--p-font-weight-regular);
+  color: var(--ds-color-fg-default);
+  background-color: var(--ds-color-bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--ds-color-fg-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ds-color-fg-link-hover);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+code, pre, kbd {
+  font-family: var(--ds-font-family-mono);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ds-color-bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--p-color-deep-purple-700);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--p-color-deep-purple-500);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: var(--ds-border-width-default) solid var(--ds-color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--p-color-deep-purple-500);
+  color: var(--p-color-neutral-white);
+}

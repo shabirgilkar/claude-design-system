@@ -1,0 +1,17 @@
+/**
+ * @ds/tokens — CSS Custom Properties (all layers)
+ *
+ * Import order matters — each layer depends on the previous.
+ *
+ * Usage:
+ *   import '@ds/tokens/css';
+ *
+ * Or import layers individually:
+ *   import '@ds/tokens/css/primitives';
+ *   import '@ds/tokens/css/semantic';
+ *   import '@ds/tokens/css/components';
+ */
+
+@import './00-primitives.css';
+@import './01-semantic.css';
+@import './02-components.css';

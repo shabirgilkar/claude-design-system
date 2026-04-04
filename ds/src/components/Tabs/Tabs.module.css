@@ -1,0 +1,183 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Vertical direction ────────────────────────────────────────────────── */
+.vertical {
+  flex-direction: row;
+}
+
+.vertical .list {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid var(--c-tabs-border);
+}
+
+.vertical .tab {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.vertical .tab::after {
+  bottom: auto;
+  left: auto;
+  right: -1px;
+  top: 0;
+  width: var(--c-tabs-indicator-height);
+  height: 100%;
+}
+
+.vertical .indicator {
+  bottom: auto;
+  left: auto;
+  right: -1px;
+  width: var(--c-tabs-indicator-height);
+  border-radius: 0 2px 2px 0;
+  transition: top var(--ds-duration-normal) var(--ds-easing-spring),
+              height var(--ds-duration-normal) var(--ds-easing-spring);
+}
+
+.vertical .panel {
+  padding: 0 0 0 var(--ds-spacing-inset-lg);
+  flex: 1;
+}
+
+/* ── Tab list ──────────────────────────────────────────────────────────── */
+.list {
+  display: flex;
+  border-bottom: 1px solid var(--c-tabs-border);
+  gap: 0;
+  position: relative;
+}
+
+/* ── Individual tab ────────────────────────────────────────────────────── */
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-spacing-component-xs);
+  height: var(--c-tabs-height-md);
+  padding: 0 var(--c-tabs-padding-x-md);
+  background: none;
+  border: none;
+  color: var(--c-tabs-label-default);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--c-tabs-font-size-md);
+  font-weight: var(--c-tabs-font-weight-default);
+  cursor: pointer;
+  transition: color var(--ds-duration-fast) var(--ds-easing-standard);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* Descriptive tabs — left-aligned with multiline description */
+.tab.descriptive {
+  height: auto;
+  padding-top: var(--ds-spacing-component-sm);
+  padding-bottom: var(--ds-spacing-component-sm);
+  white-space: normal;
+  align-items: flex-start;
+}
+
+/* Inactive underline placeholder */
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: var(--c-tabs-indicator-height);
+  background-color: transparent;
+}
+
+.tab:hover:not(.active):not([aria-disabled="true"]) {
+  color: var(--c-tabs-label-hover);
+}
+
+.active {
+  color: var(--c-tabs-label-active);
+  font-weight: var(--c-tabs-font-weight-active);
+}
+
+.tab[aria-disabled="true"] {
+  color: var(--c-tabs-label-disabled);
+  cursor: not-allowed;
+}
+
+.tab:focus-visible {
+  outline: var(--ds-border-width-default) solid var(--ds-color-border-focus);
+  outline-offset: -2px;
+  border-radius: var(--ds-radius-sm);
+}
+
+/* ── Icon ──────────────────────────────────────────────────────────────── */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ── Label group (label + description) ─────────────────────────────────── */
+.labelGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.labelRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-spacing-component-xs);
+}
+
+/* ── Description text ──────────────────────────────────────────────────── */
+.description {
+  font-size: var(--ds-font-size-footnote);
+  font-weight: var(--c-tabs-font-weight-default);
+  color: var(--c-tabs-label-default);
+  line-height: var(--ds-line-height-footnote);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+  white-space: normal;
+  max-width: 200px;
+}
+
+/* ── Notification dot ──────────────────────────────────────────────────── */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--ds-color-status-error-filled);
+  flex-shrink: 0;
+}
+
+/* ── Animated sliding indicator ─────────────────────────────────────────── */
+.indicator {
+  position: absolute;
+  bottom: -1px;
+  height: var(--c-tabs-indicator-height);
+  background-color: var(--c-tabs-indicator-active);
+  border-radius: 2px 2px 0 0;
+  transition: left var(--ds-duration-normal) var(--ds-easing-spring),
+              width var(--ds-duration-normal) var(--ds-easing-spring);
+  pointer-events: none;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────────────────── */
+.sm .tab { height: var(--c-tabs-height-sm); padding: 0 var(--c-tabs-padding-x-sm); font-size: var(--c-tabs-font-size-sm); }
+.lg .tab { height: var(--c-tabs-height-lg); padding: 0 var(--c-tabs-padding-x-lg); font-size: var(--c-tabs-font-size-lg); }
+
+/* Descriptive tabs override fixed heights */
+.sm .tab.descriptive,
+.lg .tab.descriptive { height: auto; }
+
+/* ── Content panel ─────────────────────────────────────────────────────── */
+.panel {
+  padding: var(--ds-spacing-inset-lg) 0;
+}

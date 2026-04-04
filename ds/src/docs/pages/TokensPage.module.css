@@ -1,0 +1,117 @@
+.tierFlow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 640px;
+}
+
+.tierBox {
+  background-color: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-spacing-inset-lg);
+}
+
+.tierArrow {
+  text-align: center;
+  color: var(--ds-color-fg-subtle);
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.tierHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--ds-spacing-component-xs);
+}
+
+.tierBadge {
+  font-size: var(--ds-font-size-caption);
+  font-weight: var(--p-font-weight-semibold);
+  font-family: var(--ds-font-family-mono);
+  border: 1px solid;
+  border-radius: var(--ds-radius-pill);
+  padding: 0 6px;
+  line-height: 18px;
+}
+
+.tierCount {
+  font-size: var(--ds-font-size-caption);
+  color: var(--ds-color-fg-subtle);
+  font-family: var(--ds-font-family-mono);
+}
+
+.tierName {
+  font-size: var(--ds-font-size-headline);
+  font-weight: var(--p-font-weight-semibold);
+  color: var(--ds-color-fg-default);
+  margin-bottom: var(--ds-spacing-component-xs);
+}
+
+.tierDesc {
+  font-size: var(--ds-font-size-body);
+  color: var(--ds-color-fg-muted);
+  margin-bottom: var(--ds-spacing-component-sm);
+  line-height: var(--ds-line-height-body);
+}
+
+.tierPrefix {
+  display: inline-block;
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-caption);
+  color: var(--ds-color-fg-muted);
+  background-color: var(--ds-color-bg-overlay);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-pill);
+  padding: 0 6px;
+  margin-bottom: var(--ds-spacing-component-sm);
+}
+
+.tierExample {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-caption);
+  color: var(--ds-color-fg-muted);
+  background-color: var(--ds-color-bg-overlay);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-sm);
+  padding: var(--ds-spacing-component-xs) var(--ds-spacing-component-sm);
+}
+
+.ruleList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-component-sm);
+}
+
+.ruleRow {
+  display: flex;
+  gap: var(--ds-spacing-component-md);
+  align-items: flex-start;
+  padding: var(--ds-spacing-component-sm) 0;
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+}
+
+.ruleRow:last-child {
+  border-bottom: none;
+}
+
+.ruleIcon {
+  color: var(--p-color-crimson-pink-base);
+  font-size: 8px;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.ruleName {
+  font-size: var(--ds-font-size-body);
+  font-weight: var(--p-font-weight-semibold);
+  color: var(--ds-color-fg-default);
+  margin-bottom: 2px;
+}
+
+.ruleDesc {
+  font-size: var(--ds-font-size-body);
+  color: var(--ds-color-fg-muted);
+  line-height: var(--ds-line-height-body);
+}

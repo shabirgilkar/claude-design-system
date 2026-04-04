@@ -1,0 +1,217 @@
+/**
+ * CSS Custom Properties — Tier 1: Primitives
+ * Naming: --p-{category}-{name}
+ *
+ * Internal layer. Not part of the public API.
+ * Semantic and component layers reference these via var().
+ */
+
+:root {
+  /* ── Color: deep-purple ─────────────────────────────────────── */
+  --p-color-deep-purple-100: #B4AAC1;
+  --p-color-deep-purple-200: #9586A8;
+  --p-color-deep-purple-300: #75628E;
+  --p-color-deep-purple-400: #5A4377;
+  --p-color-deep-purple-500: #442A65;
+  --p-color-deep-purple-base: #3A1F5D;
+  --p-color-deep-purple-700: #2D1849;
+  --p-color-deep-purple-800: #221236;
+  --p-color-deep-purple-900: #170C25;
+  --p-color-deep-purple-1000: #0E0716;
+
+  /* ── Color: crimson-pink ────────────────────────────────────── */
+  --p-color-crimson-pink-100: #EAB3C3;
+  --p-color-crimson-pink-200: #E192A9;
+  --p-color-crimson-pink-300: #D87290;
+  --p-color-crimson-pink-400: #D15679;
+  --p-color-crimson-pink-500: #CB4068;
+  --p-color-crimson-pink-base: #C83660;
+  --p-color-crimson-pink-700: #9C2A4B;
+  --p-color-crimson-pink-800: #741F38;
+  --p-color-crimson-pink-900: #501626;
+  --p-color-crimson-pink-1000: #300D17;
+
+  /* ── Color: coral-red ───────────────────────────────────────── */
+  --p-color-coral-red-100: #F4BDBA;
+  --p-color-coral-red-200: #EFA29D;
+  --p-color-coral-red-300: #EA8680;
+  --p-color-coral-red-400: #E66E66;
+  --p-color-coral-red-500: #E25B52;
+  --p-color-coral-red-base: #E15249;
+  --p-color-coral-red-700: #AF4039;
+  --p-color-coral-red-800: #82302A;
+  --p-color-coral-red-900: #5A211D;
+  --p-color-coral-red-1000: #361412;
+
+  /* ── Color: warm-yellow ─────────────────────────────────────── */
+  --p-color-warm-yellow-100: #FCEEC4;
+  --p-color-warm-yellow-400: #F7DA7E;
+  --p-color-warm-yellow-500: #F6D56D;
+  --p-color-warm-yellow-base: #F6D365;
+  --p-color-warm-yellow-700: #C0A54F;
+  --p-color-warm-yellow-900: #625428;
+
+  /* ── Color: medium-gray ─────────────────────────────────────── */
+  --p-color-medium-gray-200: #B3B3B3;
+  --p-color-medium-gray-300: #9D9D9D;
+  --p-color-medium-gray-400: #898989;
+  --p-color-medium-gray-500: #7A7A7A;
+  --p-color-medium-gray-base: #737373;
+  --p-color-medium-gray-700: #5A5A5A;
+  --p-color-medium-gray-800: #434343;
+  --p-color-medium-gray-900: #2E2E2E;
+
+  /* ── Color: emerald-green ───────────────────────────────────── */
+  --p-color-emerald-green-100: #C6F6D5;
+  --p-color-emerald-green-200: #9AE6B4;
+  --p-color-emerald-green-300: #68D391;
+  --p-color-emerald-green-400: #48BB78;
+  --p-color-emerald-green-500: #38A169;
+  --p-color-emerald-green-base: #38A169;
+  --p-color-emerald-green-700: #276749;
+  --p-color-emerald-green-800: #22543D;
+  --p-color-emerald-green-900: #1C4532;
+  --p-color-emerald-green-1000: #0E2F21;
+
+  /* ── Color: steel-blue ──────────────────────────────────────── */
+  --p-color-steel-blue-100: #BEE3F8;
+  --p-color-steel-blue-200: #90CDF4;
+  --p-color-steel-blue-300: #63B3ED;
+  --p-color-steel-blue-400: #4299E1;
+  --p-color-steel-blue-500: #3182CE;
+  --p-color-steel-blue-base: #3182CE;
+  --p-color-steel-blue-600: #2B6CB0;
+  --p-color-steel-blue-700: #2C5282;
+  --p-color-steel-blue-800: #2A4365;
+  --p-color-steel-blue-900: #1A365D;
+
+  /* ── Color: neutral ─────────────────────────────────────────── */
+  --p-color-neutral-white: #FFFFFF;
+  --p-color-neutral-black: #000000;
+
+  /* ── Spacing ────────────────────────────────────────────────── */
+  --p-spacing-2: 2px;
+  --p-spacing-4: 4px;
+  --p-spacing-6: 6px;
+  --p-spacing-8: 8px;
+  --p-spacing-10: 10px;
+  --p-spacing-12: 12px;
+  --p-spacing-14: 14px;
+  --p-spacing-16: 16px;
+  --p-spacing-18: 18px;
+  --p-spacing-20: 20px;
+  --p-spacing-24: 24px;
+  --p-spacing-28: 28px;
+  --p-spacing-32: 32px;
+  --p-spacing-40: 40px;
+  --p-spacing-48: 48px;
+  --p-spacing-64: 64px;
+  --p-spacing-80: 80px;
+  --p-spacing-96: 96px;
+  --p-spacing-100: 100px;
+
+  /* ── Sizing ─────────────────────────────────────────────────── */
+  --p-sizing-1: 1px;
+  --p-sizing-2: 2px;
+  --p-sizing-4: 4px;
+  --p-sizing-8: 8px;
+  --p-sizing-10: 10px;
+  --p-sizing-12: 12px;
+  --p-sizing-14: 14px;
+  --p-sizing-16: 16px;
+  --p-sizing-18: 18px;
+  --p-sizing-20: 20px;
+  --p-sizing-24: 24px;
+  --p-sizing-28: 28px;
+  --p-sizing-32: 32px;
+  --p-sizing-40: 40px;
+  --p-sizing-48: 48px;
+  --p-sizing-52: 52px;
+  --p-sizing-56: 56px;
+  --p-sizing-64: 64px;
+  --p-sizing-80: 80px;
+
+  /* ── Radius ─────────────────────────────────────────────────── */
+  --p-radius-2: 2px;
+  --p-radius-4: 4px;
+  --p-radius-8: 8px;
+  --p-radius-12: 12px;
+  --p-radius-16: 16px;
+  --p-radius-24: 24px;
+  --p-radius-32: 32px;
+  --p-radius-100: 100px;
+
+  /* ── Typography ─────────────────────────────────────────────── */
+  --p-font-family-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --p-font-family-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --p-font-weight-thin: 100;
+  --p-font-weight-extralight: 200;
+  --p-font-weight-light: 300;
+  --p-font-weight-regular: 400;
+  --p-font-weight-medium: 500;
+  --p-font-weight-semibold: 600;
+  --p-font-weight-bold: 700;
+
+  --p-line-height-display-large: 56px;
+  --p-line-height-display-medium: 48px;
+  --p-line-height-display-small: 40px;
+  --p-line-height-title-1: 38px;
+  --p-line-height-title-2: 34px;
+  --p-line-height-title-3: 30px;
+  --p-line-height-headline: 26px;
+  --p-line-height-body-large: 28px;
+  --p-line-height-body: 24px;
+  --p-line-height-callout: 20px;
+  --p-line-height-footnote: 17px;
+  --p-line-height-caption: 16px;
+  --p-line-height-label: 18px;
+
+  --p-letter-spacing-tight-xl: -1.5px;
+  --p-letter-spacing-tight-s: -0.4px;
+  --p-letter-spacing-normal: 0px;
+  --p-letter-spacing-wide-s: 0.2px;
+  --p-letter-spacing-wide-m: 0.8px;
+
+  /* ── Motion ─────────────────────────────────────────────────── */
+  --p-duration-0: 0ms;
+  --p-duration-100: 100ms;
+  --p-duration-200: 200ms;
+  --p-duration-300: 300ms;
+  --p-duration-500: 500ms;
+
+  --p-easing-linear: linear;
+  --p-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --p-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --p-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --p-easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* ── Opacity ────────────────────────────────────────────────── */
+  --p-opacity-0: 0;
+  --p-opacity-38: 0.38;
+  --p-opacity-60: 0.60;
+  --p-opacity-70: 0.70;
+  --p-opacity-100: 1;
+
+  /* ── Z-index ────────────────────────────────────────────────── */
+  --p-z-index-neg1: -1;
+  --p-z-index-0: 0;
+  --p-z-index-10: 10;
+  --p-z-index-100: 100;
+  --p-z-index-200: 200;
+  --p-z-index-300: 300;
+  --p-z-index-400: 400;
+  --p-z-index-500: 500;
+  --p-z-index-600: 600;
+  --p-z-index-700: 700;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --p-duration-100: 0ms;
+    --p-duration-200: 0ms;
+    --p-duration-300: 0ms;
+    --p-duration-500: 0ms;
+  }
+}

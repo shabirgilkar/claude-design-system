@@ -1,0 +1,130 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-component-xs);
+}
+
+.label {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-footnote);
+  font-weight: var(--ds-font-weight-label);
+  color: var(--c-input-label);
+  line-height: var(--ds-line-height-label);
+}
+
+.required {
+  color: var(--ds-color-status-error-fg);
+  margin-left: 2px;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: var(--c-input-height-md);
+  padding: 0 var(--c-input-padding-x-md);
+  background-color: var(--c-input-bg);
+  border: var(--c-input-border-width) solid var(--c-input-border);
+  border-radius: var(--c-input-radius-md);
+  color: var(--c-input-fg);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-body);
+  line-height: var(--ds-line-height-body);
+  transition: border-color var(--ds-duration-fast) var(--ds-easing-standard),
+              box-shadow var(--ds-duration-fast) var(--ds-easing-standard);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--c-input-placeholder);
+}
+
+.input:hover:not(:disabled):not(:read-only) {
+  border-color: var(--c-input-border-hover);
+}
+
+.input:focus:not(:disabled) {
+  border-color: var(--c-input-border-focus);
+  border-width: var(--c-input-border-width-focus);
+  box-shadow: 0 0 0 3px var(--c-input-focus-ring);
+}
+
+.input:disabled {
+  background-color: var(--c-input-bg-disabled);
+  border-color: var(--c-input-border-disabled);
+  color: var(--c-input-fg-disabled);
+  cursor: not-allowed;
+}
+
+.input:read-only {
+  background-color: var(--c-input-bg-readonly);
+  cursor: default;
+}
+
+/* Sizes */
+.sm .input {
+  height: var(--c-input-height-sm);
+  padding: 0 var(--c-input-padding-x-sm);
+  font-size: var(--ds-font-size-footnote);
+  border-radius: var(--c-input-radius-sm);
+}
+
+.lg .input {
+  height: var(--c-input-height-lg);
+  border-radius: var(--c-input-radius-lg);
+}
+
+/* Error state */
+.error .input {
+  border-color: var(--c-input-border-error);
+}
+
+.error .input:focus {
+  box-shadow: 0 0 0 3px var(--c-input-focus-ring-error);
+}
+
+/* With icons */
+.hasLeftIcon .input {
+  padding-left: 36px;
+}
+
+.hasRightIcon .input {
+  padding-right: 36px;
+}
+
+.iconLeft, .iconRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ds-color-fg-subtle);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+}
+
+.iconLeft {
+  left: var(--ds-spacing-component-lg);
+}
+
+.iconRight {
+  right: var(--ds-spacing-component-lg);
+}
+
+/* Hint / error message */
+.hint {
+  font-size: var(--ds-font-size-caption);
+  color: var(--c-input-hint);
+  line-height: var(--ds-line-height-footnote);
+}
+
+.errorMessage {
+  font-size: var(--ds-font-size-caption);
+  color: var(--ds-color-status-error-fg);
+  line-height: var(--ds-line-height-footnote);
+}

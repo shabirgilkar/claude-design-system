@@ -1,0 +1,217 @@
+/**
+ * CSS Custom Properties — Tier 3: Components
+ * Naming: --c-{component}-{property}
+ *
+ * All values reference semantic variables via var().
+ * Requires: 00-primitives.css, 01-semantic.css
+ */
+
+:root {
+  /* ══════════════════════════════════════════════════════════════
+   * BUTTON
+   * ══════════════════════════════════════════════════════════════ */
+
+  /* Primary — default */
+  --c-btn-primary-bg: var(--ds-color-action-primary-bg-default);
+  --c-btn-primary-fg: var(--ds-color-action-primary-fg-default);
+  --c-btn-primary-border: var(--ds-color-action-primary-border-default);
+  /* Primary — hover */
+  --c-btn-primary-bg-hover: var(--ds-color-action-primary-bg-hover);
+  /* Primary — focused */
+  --c-btn-primary-ring: var(--ds-color-action-primary-border-focus);
+  /* Primary — pressed */
+  --c-btn-primary-bg-pressed: var(--ds-color-action-primary-bg-pressed);
+  /* Primary — disabled */
+  --c-btn-primary-bg-disabled: var(--ds-color-action-primary-bg-disabled);
+  --c-btn-primary-fg-disabled: var(--ds-color-action-primary-fg-disabled);
+
+  /* Secondary — default */
+  --c-btn-secondary-bg: var(--ds-color-bg-surface);
+  --c-btn-secondary-fg: var(--ds-color-action-secondary-fg-default);
+  --c-btn-secondary-border: var(--ds-color-action-secondary-border-default);
+  --c-btn-secondary-bg-hover: var(--ds-color-action-secondary-bg-hover);
+  --c-btn-secondary-ring: var(--ds-color-action-secondary-border-focus);
+  --c-btn-secondary-bg-pressed: var(--ds-color-action-secondary-bg-pressed);
+
+  /* Destructive — default */
+  --c-btn-destructive-bg: var(--ds-color-action-danger-bg-default);
+  --c-btn-destructive-fg: var(--ds-color-action-danger-fg-default);
+  --c-btn-destructive-border: var(--ds-color-action-danger-border-default);
+  --c-btn-destructive-bg-hover: var(--ds-color-action-danger-bg-hover);
+  --c-btn-destructive-ring: var(--ds-color-action-danger-border-focus);
+
+  /* Ghost — default */
+  --c-btn-ghost-fg: var(--ds-color-action-ghost-fg-default);
+  --c-btn-ghost-bg-hover: var(--ds-color-action-ghost-bg-hover);
+  --c-btn-ghost-fg-hover: var(--ds-color-action-ghost-fg-hover);
+  --c-btn-ghost-ring: var(--ds-color-action-ghost-border-focus);
+
+  /* Shared */
+  --c-btn-focus-ring-color: var(--ds-color-border-focus);
+  --c-btn-focus-ring-width: var(--ds-border-width-default);
+  --c-btn-focus-ring-offset: var(--ds-spacing-component-xs);
+  --c-btn-opacity-disabled: var(--ds-opacity-disabled);
+  --c-btn-opacity-loading: var(--ds-opacity-muted);
+
+  /* Sizes */
+  --c-btn-height-sm: var(--ds-size-component-sm);
+  --c-btn-height-md: var(--ds-size-component-md);
+  --c-btn-height-lg: var(--ds-size-component-lg);
+  --c-btn-padding-x-sm: var(--ds-spacing-component-md);
+  --c-btn-padding-x-md: var(--ds-spacing-component-lg);
+  --c-btn-padding-x-lg: var(--ds-spacing-component-xl);
+  --c-btn-padding-y-sm: var(--ds-spacing-component-xs);
+  --c-btn-padding-y-md: var(--ds-spacing-component-sm);
+  --c-btn-gap-sm: var(--ds-spacing-component-xs);
+  --c-btn-gap-md: var(--ds-spacing-component-sm);
+  --c-btn-icon-sm: var(--ds-size-icon-sm);
+  --c-btn-icon-md: var(--ds-size-icon-md);
+  --c-btn-icon-lg: var(--ds-size-icon-lg);
+
+  /* Radius */
+  --c-btn-radius-sm: var(--ds-radius-md);
+  --c-btn-radius-md: var(--ds-radius-lg);
+  --c-btn-radius-lg: var(--ds-radius-lg);
+  --c-btn-radius-pill: var(--ds-radius-pill);
+
+  /* Border */
+  --c-btn-border-width: var(--ds-border-width-thin);
+  --c-btn-border-width-focused: var(--ds-border-width-default);
+
+  /* Typography */
+  --c-btn-font-family: var(--ds-font-family-sans);
+  --c-btn-font-weight: var(--ds-font-weight-label);
+  --c-btn-font-size-sm: var(--ds-font-size-label-small);
+  --c-btn-font-size-md: var(--ds-font-size-label-medium);
+  --c-btn-font-size-lg: var(--ds-font-size-label-large);
+  --c-btn-letter-spacing: var(--ds-letter-spacing-label);
+  --c-btn-line-height: var(--ds-line-height-label);
+
+  /* ══════════════════════════════════════════════════════════════
+   * INPUT
+   * ══════════════════════════════════════════════════════════════ */
+
+  --c-input-bg: var(--ds-color-bg-surface);
+  --c-input-border: var(--ds-color-border-default);
+  --c-input-fg: var(--ds-color-fg-default);
+  --c-input-placeholder: var(--ds-color-fg-placeholder);
+  --c-input-label: var(--ds-color-fg-muted);
+  --c-input-hint: var(--ds-color-fg-subtle);
+
+  --c-input-border-hover: var(--ds-color-border-strong);
+  --c-input-border-focus: var(--ds-color-border-focus);
+  --c-input-border-error: var(--ds-color-border-status-error);
+  --c-input-border-disabled: var(--ds-color-border-disabled);
+  --c-input-bg-disabled: var(--ds-color-bg-neutral);
+  --c-input-fg-disabled: var(--ds-color-fg-disabled);
+  --c-input-bg-readonly: var(--ds-color-bg-neutral-subtle);
+
+  --c-input-height-sm: var(--ds-size-component-sm);
+  --c-input-height-md: var(--ds-size-component-md);
+  --c-input-height-lg: var(--ds-size-component-lg);
+  --c-input-padding-x-sm: var(--ds-spacing-component-md);
+  --c-input-padding-x-md: var(--ds-spacing-component-lg);
+  --c-input-radius-sm: var(--ds-radius-sm);
+  --c-input-radius-md: var(--ds-radius-md);
+  --c-input-radius-lg: var(--ds-radius-lg);
+  --c-input-border-width: var(--ds-border-width-thin);
+  --c-input-border-width-focus: var(--ds-border-width-default);
+
+  /* ══════════════════════════════════════════════════════════════
+   * BADGE
+   * ══════════════════════════════════════════════════════════════ */
+
+  --c-badge-neutral-bg: var(--ds-color-status-neutral-bg);
+  --c-badge-neutral-border: var(--ds-color-status-neutral-border);
+  --c-badge-neutral-text: var(--ds-color-status-neutral-fg);
+
+  --c-badge-success-bg: var(--ds-color-status-success-bg);
+  --c-badge-success-border: var(--ds-color-status-success-border);
+  --c-badge-success-text: var(--ds-color-status-success-fg);
+
+  --c-badge-warning-bg: var(--ds-color-status-warning-bg);
+  --c-badge-warning-border: var(--ds-color-status-warning-border);
+  --c-badge-warning-text: var(--ds-color-status-warning-fg);
+
+  --c-badge-error-bg: var(--ds-color-status-error-bg);
+  --c-badge-error-border: var(--ds-color-status-error-border);
+  --c-badge-error-text: var(--ds-color-status-error-fg);
+
+  --c-badge-info-bg: var(--ds-color-status-info-bg);
+  --c-badge-info-border: var(--ds-color-status-info-border);
+  --c-badge-info-text: var(--ds-color-status-info-fg);
+
+  --c-badge-brand-bg: var(--ds-color-bg-brand);
+  --c-badge-brand-border: var(--ds-color-border-brand);
+  --c-badge-brand-text: var(--ds-color-fg-on-brand);
+
+  --c-badge-height-sm: 18px;
+  --c-badge-height-md: 22px;
+  --c-badge-height-lg: 26px;
+  --c-badge-padding-x-sm: var(--ds-spacing-component-xs);
+  --c-badge-padding-x-md: var(--ds-spacing-component-sm);
+  --c-badge-radius-pill: var(--ds-radius-pill);
+  --c-badge-radius-rect-sm: var(--ds-radius-sm);
+  --c-badge-radius-rect-md: var(--ds-radius-sm);
+  --c-badge-radius-rect-lg: var(--ds-radius-md);
+  --c-badge-font-size-sm: var(--ds-font-size-label-small);
+  --c-badge-font-size-md: var(--ds-font-size-label-medium);
+  --c-badge-font-weight: var(--ds-font-weight-label);
+
+  /* ══════════════════════════════════════════════════════════════
+   * TABS
+   * ══════════════════════════════════════════════════════════════ */
+
+  --c-tabs-label-default: var(--ds-color-fg-subtle);
+  --c-tabs-label-hover: var(--ds-color-fg-muted);
+  --c-tabs-label-active: var(--ds-color-fg-default);
+  --c-tabs-label-disabled: var(--ds-color-fg-disabled);
+  --c-tabs-indicator-active: var(--ds-color-border-brand);
+  --c-tabs-border: var(--ds-color-border-subtle);
+  --c-tabs-indicator-height: 2px;
+
+  --c-tabs-height-sm: var(--ds-size-component-sm);
+  --c-tabs-height-md: var(--ds-size-component-md);
+  --c-tabs-height-lg: var(--ds-size-component-lg);
+  --c-tabs-padding-x-sm: var(--ds-spacing-component-sm);
+  --c-tabs-padding-x-md: var(--ds-spacing-component-lg);
+  --c-tabs-padding-x-lg: var(--ds-spacing-component-xl);
+  --c-tabs-font-size-sm: var(--ds-font-size-label-small);
+  --c-tabs-font-size-md: var(--ds-font-size-label-medium);
+  --c-tabs-font-size-lg: var(--ds-font-size-label-large);
+  --c-tabs-font-weight-active: var(--ds-font-weight-label);
+  --c-tabs-font-weight-default: var(--ds-font-weight-body);
+
+  /* ══════════════════════════════════════════════════════════════
+   * TOOLTIP
+   * ══════════════════════════════════════════════════════════════ */
+
+  --c-tooltip-dark-bg: var(--ds-color-fg-default);
+  --c-tooltip-dark-text: var(--ds-color-bg-page);
+  --c-tooltip-light-bg: var(--ds-color-bg-surface-raised);
+  --c-tooltip-light-text: var(--ds-color-fg-default);
+  --c-tooltip-light-border: var(--ds-color-border-default);
+  --c-tooltip-padding-x: var(--ds-spacing-component-md);
+  --c-tooltip-padding-y: var(--ds-spacing-component-sm);
+  --c-tooltip-radius: var(--ds-radius-md);
+  --c-tooltip-font-size: var(--ds-font-size-footnote);
+  --c-tooltip-line-height: var(--ds-line-height-footnote);
+  --c-tooltip-z-index: var(--ds-z-tooltip);
+
+  /* ══════════════════════════════════════════════════════════════
+   * TOAST
+   * ══════════════════════════════════════════════════════════════ */
+
+  --c-toast-bg: var(--ds-color-bg-surface);
+  --c-toast-border: var(--ds-color-border-default);
+  --c-toast-title: var(--ds-color-fg-default);
+  --c-toast-description: var(--ds-color-fg-muted);
+  --c-toast-success-accent: var(--ds-color-status-success-filled);
+  --c-toast-error-accent: var(--ds-color-status-error-filled);
+  --c-toast-warning-accent: var(--ds-color-status-warning-filled);
+  --c-toast-info-accent: var(--ds-color-status-info-filled);
+  --c-toast-padding: var(--ds-spacing-inset-lg);
+  --c-toast-radius: var(--ds-radius-lg);
+  --c-toast-z-index: var(--ds-z-toast);
+  --c-toast-accent-width: 4px;
+}

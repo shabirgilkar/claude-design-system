@@ -1,0 +1,52 @@
+{
+  "name": "@shabir/claude-design-system",
+  "author": "Shabir Ahmad Gilkar",
+  "homepage": "https://shabirgilkar.github.io/claude-design-system/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shabirgilkar/claude-design-system.git"
+  },
+  "version": "1.0.0",
+  "description": "Enterprise-grade design system with 12 React components, 3-tier token architecture, and dual Dark/Light theme support.",
+  "type": "module",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/lib/index.js",
+  "types": "./dist/lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/lib/index.js",
+      "types": "./dist/lib/index.d.ts"
+    },
+    "./tokens.css": "./dist/lib/tokens.css",
+    "./styles": "./dist/lib/tokens.css"
+  },
+  "files": [
+    "dist/lib/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "tokens",
+    "css-modules",
+    "dark-mode",
+    "light-mode",
+    "accessibility",
+    "wcag",
+    "figma",
+    "typescript"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.441.0"
+  }
+}

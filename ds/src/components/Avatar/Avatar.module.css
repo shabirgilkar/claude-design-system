@@ -1,0 +1,51 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--c-avatar-bg);
+  color: var(--c-avatar-fg);
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--ds-font-weight-label);
+  flex-shrink: 0;
+  position: relative;
+  border: 1px solid var(--c-avatar-border);
+}
+
+.xs  { width: var(--c-avatar-size-xs);  height: var(--c-avatar-size-xs);  font-size: 9px; }
+.sm  { width: var(--c-avatar-size-sm);  height: var(--c-avatar-size-sm);  font-size: 12px; }
+.md  { width: var(--c-avatar-size-md);  height: var(--c-avatar-size-md);  font-size: 14px; }
+.lg  { width: var(--c-avatar-size-lg);  height: var(--c-avatar-size-lg);  font-size: 16px; }
+.xl  { width: var(--c-avatar-size-xl);  height: var(--c-avatar-size-xl);  font-size: 20px; }
+.xxl { width: var(--c-avatar-size-2xl); height: var(--c-avatar-size-2xl); font-size: 24px; }
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Color variations for initials */
+.purple { background-color: var(--p-color-deep-purple-base); }
+.pink   { background-color: var(--p-color-crimson-pink-base); }
+.red    { background-color: var(--p-color-coral-red-700); }
+.green  { background-color: var(--p-color-emerald-green-700); }
+.blue   { background-color: var(--p-color-steel-blue-700); }
+
+/* Group */
+.group {
+  display: inline-flex;
+}
+
+.group .avatar + .avatar {
+  margin-left: -8px;
+  border: 2px solid var(--ds-color-bg-page);
+}
+
+.group .avatar:hover {
+  z-index: 1;
+  transform: translateY(-2px);
+  transition: transform var(--ds-duration-fast) var(--ds-easing-spring);
+}

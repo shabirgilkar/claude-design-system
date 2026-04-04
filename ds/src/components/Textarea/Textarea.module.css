@@ -1,0 +1,90 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-component-xs);
+}
+
+.label {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-footnote);
+  font-weight: var(--ds-font-weight-label);
+  color: var(--c-input-label);
+}
+
+.required {
+  color: var(--ds-color-status-error-fg);
+  margin-left: 2px;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: var(--ds-spacing-component-sm) var(--c-input-padding-x-md);
+  background-color: var(--c-input-bg);
+  border: var(--c-input-border-width) solid var(--c-input-border);
+  border-radius: var(--c-input-radius-md);
+  color: var(--c-input-fg);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-body);
+  line-height: var(--ds-line-height-body);
+  resize: vertical;
+  transition: border-color var(--ds-duration-fast) var(--ds-easing-standard),
+              box-shadow var(--ds-duration-fast) var(--ds-easing-standard);
+  outline: none;
+}
+
+.textarea::placeholder {
+  color: var(--c-input-placeholder);
+}
+
+.textarea:hover:not(:disabled):not(:read-only) {
+  border-color: var(--c-input-border-hover);
+}
+
+.textarea:focus:not(:disabled) {
+  border-color: var(--c-input-border-focus);
+  border-width: var(--c-input-border-width-focus);
+  box-shadow: 0 0 0 3px var(--c-input-focus-ring);
+}
+
+.textarea:disabled {
+  background-color: var(--c-input-bg-disabled);
+  border-color: var(--c-input-border-disabled);
+  color: var(--c-input-fg-disabled);
+  cursor: not-allowed;
+  resize: none;
+}
+
+.noResize {
+  resize: none;
+}
+
+.error .textarea {
+  border-color: var(--c-input-border-error);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--ds-spacing-component-sm);
+}
+
+.hint, .errorMessage {
+  font-size: var(--ds-font-size-caption);
+  line-height: var(--ds-line-height-footnote);
+}
+
+.hint { color: var(--c-input-hint); }
+.errorMessage { color: var(--ds-color-status-error-fg); }
+
+.charCount {
+  font-size: var(--ds-font-size-caption);
+  color: var(--c-input-hint);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.charCountOver {
+  color: var(--ds-color-status-error-fg);
+}

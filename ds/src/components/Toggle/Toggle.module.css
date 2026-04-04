@@ -1,0 +1,91 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-spacing-component-sm);
+  cursor: pointer;
+}
+
+.wrapper.disabled {
+  cursor: not-allowed;
+  opacity: var(--ds-opacity-disabled);
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.track {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--c-toggle-track-width-md);
+  height: var(--c-toggle-track-height-md);
+  border-radius: var(--ds-radius-pill);
+  background-color: var(--c-toggle-track-bg-off);
+  transition: background-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.on .track {
+  background-color: var(--c-toggle-track-bg-on);
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  width: var(--c-toggle-thumb-size-md);
+  height: var(--c-toggle-thumb-size-md);
+  border-radius: 50%;
+  background-color: var(--c-toggle-thumb-bg);
+  box-shadow: var(--ds-shadow-1);
+  transition: left var(--ds-duration-fast) var(--ds-easing-spring),
+              background-color var(--ds-duration-fast) var(--ds-easing-standard);
+}
+
+.on .thumb {
+  left: calc(100% - var(--c-toggle-thumb-size-md) - 2px);
+}
+
+.input:focus-visible ~ .track {
+  outline: var(--ds-border-width-default) solid var(--c-toggle-ring);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.sm .track {
+  width: var(--c-toggle-track-width-sm);
+  height: var(--c-toggle-track-height-sm);
+}
+
+.sm .thumb {
+  width: var(--c-toggle-thumb-size-sm);
+  height: var(--c-toggle-thumb-size-sm);
+}
+
+.sm.on .thumb {
+  left: calc(100% - var(--c-toggle-thumb-size-sm) - 2px);
+}
+
+.lg .track {
+  width: var(--c-toggle-track-width-lg);
+  height: var(--c-toggle-track-height-lg);
+}
+
+.lg .thumb {
+  width: var(--c-toggle-thumb-size-lg);
+  height: var(--c-toggle-thumb-size-lg);
+}
+
+.lg.on .thumb {
+  left: calc(100% - var(--c-toggle-thumb-size-lg) - 2px);
+}
+
+.labelText {
+  font-size: var(--ds-font-size-body);
+  color: var(--ds-color-fg-default);
+  user-select: none;
+}

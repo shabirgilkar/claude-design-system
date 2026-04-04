@@ -1,0 +1,262 @@
+/**
+ * CSS Custom Properties — Tier 2: Semantic
+ * Naming: --ds-{category}-{intent}
+ *
+ * All values reference primitive variables via var().
+ * This is the public API — components consume these properties.
+ *
+ * Requires: 00-primitives.css
+ */
+
+:root {
+  /* ── Background ─────────────────────────────────────────────── */
+  --ds-color-bg-page: var(--p-color-deep-purple-1000);
+  --ds-color-bg-subtle: var(--p-color-deep-purple-900);
+  --ds-color-bg-surface: var(--p-color-deep-purple-800);
+  --ds-color-bg-surface-raised: var(--p-color-deep-purple-700);
+  --ds-color-bg-overlay: var(--p-color-deep-purple-900);
+  --ds-color-bg-inverse: var(--p-color-neutral-white);
+  --ds-color-bg-brand: var(--p-color-deep-purple-base);
+  --ds-color-bg-brand-subtle: var(--p-color-deep-purple-100);
+  --ds-color-bg-neutral: var(--p-color-medium-gray-900);
+  --ds-color-bg-neutral-subtle: var(--p-color-medium-gray-800);
+
+  /* ── Foreground ─────────────────────────────────────────────── */
+  --ds-color-fg-default: var(--p-color-neutral-white);
+  --ds-color-fg-muted: var(--p-color-medium-gray-200);
+  --ds-color-fg-subtle: var(--p-color-medium-gray-400);
+  --ds-color-fg-placeholder: var(--p-color-medium-gray-400);
+  --ds-color-fg-disabled: var(--p-color-medium-gray-base);
+  --ds-color-fg-inverse: var(--p-color-deep-purple-1000);
+  --ds-color-fg-on-brand: var(--p-color-neutral-white);
+  --ds-color-fg-brand: var(--p-color-deep-purple-200);
+  --ds-color-fg-focus-visible: var(--p-color-deep-purple-100);
+  --ds-color-fg-link-default: var(--p-color-deep-purple-200);
+  --ds-color-fg-link-hover: var(--p-color-deep-purple-100);
+  --ds-color-fg-status-success: var(--p-color-emerald-green-400);
+  --ds-color-fg-status-warning: var(--p-color-warm-yellow-400);
+  --ds-color-fg-status-error: var(--p-color-crimson-pink-300);
+  --ds-color-fg-status-info: var(--p-color-steel-blue-300);
+  --ds-color-fg-status-neutral: var(--p-color-medium-gray-300);
+
+  /* ── Border ─────────────────────────────────────────────────── */
+  --ds-color-border-default: var(--p-color-deep-purple-300);
+  --ds-color-border-strong: var(--p-color-deep-purple-400);
+  --ds-color-border-subtle: var(--p-color-deep-purple-800);
+  --ds-color-border-inverse: var(--p-color-neutral-white);
+  --ds-color-border-brand: var(--p-color-deep-purple-base);
+  --ds-color-border-focus: var(--p-color-deep-purple-300);
+  --ds-color-border-disabled: var(--p-color-medium-gray-base);
+  --ds-color-border-status-success: var(--p-color-emerald-green-500);
+  --ds-color-border-status-warning: var(--p-color-warm-yellow-500);
+  --ds-color-border-status-error: var(--p-color-crimson-pink-base);
+  --ds-color-border-status-info: var(--p-color-steel-blue-600);
+  --ds-color-border-status-neutral: var(--p-color-medium-gray-500);
+
+  /* ── Action: primary ─────────────────────────────────────────── */
+  --ds-color-action-primary-bg-default: var(--p-color-deep-purple-base);
+  --ds-color-action-primary-bg-hover: var(--p-color-deep-purple-500);
+  --ds-color-action-primary-bg-pressed: var(--p-color-deep-purple-700);
+  --ds-color-action-primary-bg-disabled: var(--p-color-medium-gray-800);
+  --ds-color-action-primary-fg-default: var(--p-color-neutral-white);
+  --ds-color-action-primary-fg-disabled: var(--p-color-medium-gray-300);
+  --ds-color-action-primary-border-default: var(--p-color-deep-purple-base);
+  --ds-color-action-primary-border-focus: var(--p-color-deep-purple-300);
+
+  /* ── Action: secondary ───────────────────────────────────────── */
+  --ds-color-action-secondary-bg-default: var(--p-color-deep-purple-800);
+  --ds-color-action-secondary-bg-hover: var(--p-color-deep-purple-700);
+  --ds-color-action-secondary-bg-pressed: var(--p-color-deep-purple-900);
+  --ds-color-action-secondary-bg-disabled: var(--p-color-medium-gray-900);
+  --ds-color-action-secondary-fg-default: var(--p-color-deep-purple-200);
+  --ds-color-action-secondary-fg-disabled: var(--p-color-medium-gray-300);
+  --ds-color-action-secondary-border-default: var(--p-color-deep-purple-500);
+  --ds-color-action-secondary-border-focus: var(--p-color-deep-purple-300);
+
+  /* ── Action: ghost ───────────────────────────────────────────── */
+  --ds-color-action-ghost-bg-hover: var(--p-color-deep-purple-900);
+  --ds-color-action-ghost-bg-pressed: var(--p-color-deep-purple-800);
+  --ds-color-action-ghost-fg-default: var(--p-color-deep-purple-200);
+  --ds-color-action-ghost-fg-hover: var(--p-color-neutral-white);
+  --ds-color-action-ghost-fg-disabled: var(--p-color-medium-gray-300);
+  --ds-color-action-ghost-border-focus: var(--p-color-deep-purple-300);
+
+  /* ── Action: danger ──────────────────────────────────────────── */
+  --ds-color-action-danger-bg-default: var(--p-color-crimson-pink-base);
+  --ds-color-action-danger-bg-hover: var(--p-color-crimson-pink-700);
+  --ds-color-action-danger-bg-pressed: var(--p-color-crimson-pink-800);
+  --ds-color-action-danger-bg-disabled: var(--p-color-medium-gray-800);
+  --ds-color-action-danger-fg-default: var(--p-color-neutral-white);
+  --ds-color-action-danger-fg-disabled: var(--p-color-medium-gray-300);
+  --ds-color-action-danger-border-default: var(--p-color-crimson-pink-base);
+  --ds-color-action-danger-border-focus: var(--p-color-crimson-pink-300);
+
+  /* ── Status ──────────────────────────────────────────────────── */
+  --ds-color-status-success-bg: var(--p-color-emerald-green-100);
+  --ds-color-status-success-fg: var(--p-color-emerald-green-800);
+  --ds-color-status-success-fg-on: var(--p-color-emerald-green-1000);
+  --ds-color-status-success-icon: var(--p-color-emerald-green-500);
+  --ds-color-status-success-border: var(--p-color-emerald-green-400);
+  --ds-color-status-success-filled: var(--p-color-emerald-green-base);
+
+  --ds-color-status-warning-bg: var(--p-color-warm-yellow-100);
+  --ds-color-status-warning-fg: var(--p-color-warm-yellow-900);
+  --ds-color-status-warning-icon: var(--p-color-warm-yellow-500);
+  --ds-color-status-warning-border: var(--p-color-warm-yellow-400);
+  --ds-color-status-warning-filled: var(--p-color-warm-yellow-base);
+
+  --ds-color-status-error-bg: var(--p-color-crimson-pink-100);
+  --ds-color-status-error-fg: var(--p-color-crimson-pink-800);
+  --ds-color-status-error-fg-on: var(--p-color-neutral-white);
+  --ds-color-status-error-icon: var(--p-color-crimson-pink-base);
+  --ds-color-status-error-border: var(--p-color-crimson-pink-400);
+  --ds-color-status-error-filled: var(--p-color-crimson-pink-base);
+
+  --ds-color-status-info-bg: var(--p-color-steel-blue-900);
+  --ds-color-status-info-fg: var(--p-color-steel-blue-300);
+  --ds-color-status-info-fg-on: var(--p-color-steel-blue-100);
+  --ds-color-status-info-icon: var(--p-color-steel-blue-400);
+  --ds-color-status-info-border: var(--p-color-steel-blue-600);
+  --ds-color-status-info-filled: var(--p-color-steel-blue-base);
+
+  --ds-color-status-neutral-bg: var(--p-color-medium-gray-900);
+  --ds-color-status-neutral-fg: var(--p-color-medium-gray-200);
+  --ds-color-status-neutral-fg-on: var(--p-color-neutral-white);
+  --ds-color-status-neutral-icon: var(--p-color-medium-gray-400);
+  --ds-color-status-neutral-border: var(--p-color-medium-gray-700);
+  --ds-color-status-neutral-filled: var(--p-color-medium-gray-500);
+
+  /* ── Spacing ─────────────────────────────────────────────────── */
+  --ds-spacing-component-2xs: var(--p-spacing-2);
+  --ds-spacing-component-xs: var(--p-spacing-4);
+  --ds-spacing-component-sm: var(--p-spacing-8);
+  --ds-spacing-component-md: var(--p-spacing-12);
+  --ds-spacing-component-lg: var(--p-spacing-16);
+  --ds-spacing-component-xl: var(--p-spacing-24);
+  --ds-spacing-component-2xl: var(--p-spacing-32);
+  --ds-spacing-component-3xl: var(--p-spacing-48);
+
+  --ds-spacing-layout-xs: var(--p-spacing-16);
+  --ds-spacing-layout-sm: var(--p-spacing-24);
+  --ds-spacing-layout-md: var(--p-spacing-40);
+  --ds-spacing-layout-lg: var(--p-spacing-64);
+  --ds-spacing-layout-xl: var(--p-spacing-80);
+  --ds-spacing-layout-2xl: var(--p-spacing-96);
+
+  --ds-spacing-inset-xs: var(--p-spacing-4);
+  --ds-spacing-inset-sm: var(--p-spacing-8);
+  --ds-spacing-inset-md: var(--p-spacing-12);
+  --ds-spacing-inset-lg: var(--p-spacing-16);
+  --ds-spacing-inset-xl: var(--p-spacing-24);
+  --ds-spacing-inset-2xl: var(--p-spacing-32);
+
+  /* ── Border radius ───────────────────────────────────────────── */
+  --ds-radius-none: var(--p-radius-2);
+  --ds-radius-sm: var(--p-radius-4);
+  --ds-radius-md: var(--p-radius-8);
+  --ds-radius-lg: var(--p-radius-12);
+  --ds-radius-xl: var(--p-radius-16);
+  --ds-radius-2xl: var(--p-radius-24);
+  --ds-radius-3xl: var(--p-radius-32);
+  --ds-radius-pill: var(--p-radius-100);
+
+  /* ── Border width ────────────────────────────────────────────── */
+  --ds-border-width-thin: var(--p-sizing-1);
+  --ds-border-width-default: var(--p-sizing-2);
+  --ds-border-width-thick: 4px;
+
+  /* ── Sizing: icons ───────────────────────────────────────────── */
+  --ds-size-icon-xs: var(--p-sizing-12);
+  --ds-size-icon-sm: var(--p-sizing-16);
+  --ds-size-icon-md: var(--p-sizing-20);
+  --ds-size-icon-lg: var(--p-sizing-24);
+  --ds-size-icon-xl: var(--p-sizing-32);
+  --ds-size-icon-2xl: var(--p-sizing-40);
+
+  /* ── Sizing: components ──────────────────────────────────────── */
+  --ds-size-component-2xs: var(--p-sizing-24);
+  --ds-size-component-xs: var(--p-sizing-28);
+  --ds-size-component-sm: var(--p-sizing-32);
+  --ds-size-component-md: var(--p-sizing-40);
+  --ds-size-component-lg: var(--p-sizing-48);
+  --ds-size-component-xl: var(--p-sizing-56);
+  --ds-size-component-2xl: var(--p-sizing-64);
+
+  /* ── Typography ──────────────────────────────────────────────── */
+  --ds-font-family-sans: var(--p-font-family-sans);
+  --ds-font-family-mono: var(--p-font-family-mono);
+
+  --ds-font-weight-display: var(--p-font-weight-bold);
+  --ds-font-weight-title: var(--p-font-weight-semibold);
+  --ds-font-weight-headline: var(--p-font-weight-semibold);
+  --ds-font-weight-body: var(--p-font-weight-regular);
+  --ds-font-weight-body-em: var(--p-font-weight-semibold);
+  --ds-font-weight-label: var(--p-font-weight-semibold);
+  --ds-font-weight-caption: var(--p-font-weight-medium);
+
+  --ds-font-size-display-large: 52px;
+  --ds-font-size-display-medium: 44px;
+  --ds-font-size-display-small: 36px;
+  --ds-font-size-title-1: 32px;
+  --ds-font-size-title-2: 28px;
+  --ds-font-size-title-3: 24px;
+  --ds-font-size-headline: 20px;
+  --ds-font-size-body-large: 18px;
+  --ds-font-size-body: 16px;
+  --ds-font-size-callout: 14px;
+  --ds-font-size-footnote: 12px;
+  --ds-font-size-caption: 12px;
+  --ds-font-size-label-large: 14px;
+  --ds-font-size-label-medium: 12px;
+  --ds-font-size-label-small: 10px;
+
+  --ds-line-height-display-large: var(--p-line-height-display-large);
+  --ds-line-height-display-medium: var(--p-line-height-display-medium);
+  --ds-line-height-display-small: var(--p-line-height-display-small);
+  --ds-line-height-title-1: var(--p-line-height-title-1);
+  --ds-line-height-title-2: var(--p-line-height-title-2);
+  --ds-line-height-title-3: var(--p-line-height-title-3);
+  --ds-line-height-headline: var(--p-line-height-headline);
+  --ds-line-height-body-large: var(--p-line-height-body-large);
+  --ds-line-height-body: var(--p-line-height-body);
+  --ds-line-height-callout: var(--p-line-height-callout);
+  --ds-line-height-footnote: var(--p-line-height-footnote);
+  --ds-line-height-caption: var(--p-line-height-caption);
+  --ds-line-height-label: var(--p-line-height-label);
+
+  --ds-letter-spacing-display: var(--p-letter-spacing-tight-xl);
+  --ds-letter-spacing-title: var(--p-letter-spacing-tight-s);
+  --ds-letter-spacing-body: var(--p-letter-spacing-normal);
+  --ds-letter-spacing-label: var(--p-letter-spacing-wide-m);
+  --ds-letter-spacing-caption: var(--p-letter-spacing-wide-s);
+
+  /* ── Motion ──────────────────────────────────────────────────── */
+  --ds-duration-instant: var(--p-duration-0);
+  --ds-duration-fast: var(--p-duration-100);
+  --ds-duration-normal: var(--p-duration-200);
+  --ds-duration-slow: var(--p-duration-300);
+  --ds-duration-slower: var(--p-duration-500);
+
+  --ds-easing-linear: var(--p-easing-linear);
+  --ds-easing-ease-in: var(--p-easing-ease-in);
+  --ds-easing-ease-out: var(--p-easing-ease-out);
+  --ds-easing-ease-in-out: var(--p-easing-ease-in-out);
+  --ds-easing-spring: var(--p-easing-spring);
+
+  /* ── Elevation ───────────────────────────────────────────────── */
+  --ds-z-below: var(--p-z-index-neg1);
+  --ds-z-base: var(--p-z-index-0);
+  --ds-z-raised: var(--p-z-index-10);
+  --ds-z-dropdown: var(--p-z-index-100);
+  --ds-z-sticky: var(--p-z-index-200);
+  --ds-z-overlay: var(--p-z-index-300);
+  --ds-z-modal: var(--p-z-index-400);
+  --ds-z-popover: var(--p-z-index-500);
+  --ds-z-toast: var(--p-z-index-600);
+  --ds-z-tooltip: var(--p-z-index-700);
+
+  --ds-opacity-disabled: var(--p-opacity-38);
+  --ds-opacity-muted: var(--p-opacity-60);
+  --ds-opacity-overlay: var(--p-opacity-70);
+  --ds-opacity-full: var(--p-opacity-100);
+}

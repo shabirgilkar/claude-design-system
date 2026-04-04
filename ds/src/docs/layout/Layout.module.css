@@ -1,0 +1,169 @@
+.outer {
+  min-height: 100vh;
+  background-color: var(--ds-color-bg-page);
+}
+
+.root {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 56px 1fr;
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: var(--ds-color-bg-page);
+  border-left: 1px solid var(--ds-color-border-subtle);
+  border-right: 1px solid var(--ds-color-border-subtle);
+}
+
+/* ── Topbar ───────────────────────────────────────────────────────────────── */
+.topbar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--ds-spacing-inset-lg);
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+  background-color: var(--ds-color-bg-page);
+  position: sticky;
+  top: 0;
+  z-index: var(--ds-z-sticky);
+  gap: var(--ds-spacing-component-lg);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-spacing-component-sm);
+  text-decoration: none;
+  color: var(--ds-color-fg-default);
+}
+
+.logoBadge {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--ds-radius-md);
+  background: linear-gradient(135deg, var(--p-color-deep-purple-base), var(--p-color-crimson-pink-base));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--p-font-weight-bold);
+  font-size: 13px;
+  color: var(--ds-color-fg-on-brand);
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--p-font-weight-semibold);
+  font-size: var(--ds-font-size-body);
+  letter-spacing: var(--p-letter-spacing-wide-s);
+}
+
+.logoVersion {
+  font-size: var(--ds-font-size-caption);
+  color: var(--ds-color-fg-subtle);
+  font-family: var(--ds-font-family-mono);
+  background-color: var(--ds-color-bg-surface);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-pill);
+  padding: 0 6px;
+  line-height: 18px;
+}
+
+.topbarSpacer {
+  flex: 1;
+}
+
+.topbarMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-spacing-component-md);
+  color: var(--ds-color-fg-subtle);
+  font-size: var(--ds-font-size-footnote);
+  font-family: var(--ds-font-family-mono);
+}
+
+/* ── Sidebar ──────────────────────────────────────────────────────────────── */
+.sidebar {
+  border-right: 1px solid var(--ds-color-border-subtle);
+  overflow-y: auto;
+  padding: var(--ds-spacing-inset-lg) 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+}
+
+.sidebarSection {
+  padding: 0 var(--ds-spacing-inset-md);
+  margin-bottom: var(--ds-spacing-component-md);
+}
+
+.sidebarSectionLabel {
+  font-size: var(--ds-font-size-caption);
+  font-weight: var(--p-font-weight-semibold);
+  letter-spacing: var(--p-letter-spacing-wide-m);
+  text-transform: uppercase;
+  color: var(--ds-color-fg-subtle);
+  padding: var(--ds-spacing-component-sm) var(--ds-spacing-component-sm);
+  margin-bottom: var(--ds-spacing-component-2xs);
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-spacing-component-sm);
+  padding: var(--ds-spacing-component-xs) var(--ds-spacing-component-sm);
+  border-radius: var(--ds-radius-md);
+  color: var(--ds-color-fg-subtle);
+  font-size: var(--ds-font-size-body);
+  text-decoration: none;
+  transition: background-color var(--ds-duration-fast) var(--ds-easing-standard),
+              color var(--ds-duration-fast) var(--ds-easing-standard);
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: var(--ds-font-family-sans);
+}
+
+.sidebarItem:hover {
+  background-color: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-muted);
+}
+
+.sidebarItemActive {
+  background-color: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-default);
+  font-weight: var(--p-font-weight-medium);
+}
+
+.sidebarItemDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sidebarItemDot.success { background-color: var(--ds-color-status-success-fg); }
+.sidebarItemDot.warning { background-color: var(--ds-color-status-warning-fg); }
+.sidebarItemDot.error   { background-color: var(--ds-color-status-error-fg); }
+.sidebarItemDot.info    { background-color: var(--ds-color-status-info-fg); }
+.sidebarItemDot.brand   { background-color: var(--p-color-crimson-pink-base); }
+
+/* ── Main Content ─────────────────────────────────────────────────────────── */
+.main {
+  overflow-y: auto;
+  padding: var(--ds-spacing-inset-2xl);
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .root {
+    grid-template-columns: 1fr;
+    grid-template-rows: 56px auto 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
