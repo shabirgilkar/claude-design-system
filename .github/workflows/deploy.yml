@@ -24,18 +24,19 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
-          cache-dependency-path: ds/package-lock.json
+          node-version: 22
 
       - name: Install dependencies
-        run: cd ds && npm ci
+        working-directory: ds
+        run: npm ci
 
       - name: Build documentation portal
-        run: cd ds && npm run build
+        working-directory: ds
+        run: npm run build
 
       - name: Build Storybook
-        run: cd ds && npm run build-storybook
+        working-directory: ds
+        run: npm run build-storybook
 
       - name: Combine outputs
         run: |
