@@ -333,7 +333,7 @@ This design system was audited against the **Official Figma MCP Skills** (7 skil
 ## Project Structure
 
 ```
-├── about.md                              ← You are here
+├── README.md                             ← You are here
 ├── CLAUDE.md                             ← AI automation lifecycle rules
 ├── DESIGN-SYSTEM-STANDARDS.md            ← Comprehensive design standards
 ├── .claude/
@@ -395,7 +395,7 @@ This design system was audited against the **Official Figma MCP Skills** (7 skil
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/shabirgilkar/claude-design-system.git
 cd ds
 
 # Install dependencies
