@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/JHlhHQHU9PslnN7WF3Pfxl/Claude-MCP?node-id=PLACEHOLDER
+// url=https://www.figma.com/design/JHlhHQHU9PslnN7WF3Pfxl/Claude-MCP?node-id=81-38255
 // source=ds/src/components/Toast/Toast.tsx
 // component=ToastPreview
 const figma = require('figma')

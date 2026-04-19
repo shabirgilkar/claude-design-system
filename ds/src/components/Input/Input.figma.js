@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/JHlhHQHU9PslnN7WF3Pfxl/Claude-MCP?node-id=PLACEHOLDER
+// url=https://www.figma.com/design/JHlhHQHU9PslnN7WF3Pfxl/Claude-MCP?node-id=15-7857
 // source=ds/src/components/Input/Input.tsx
 // component=Input
 const figma = require('figma')

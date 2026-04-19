@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/JHlhHQHU9PslnN7WF3Pfxl/Claude-MCP?node-id=PLACEHOLDER
+// url=https://www.figma.com/design/JHlhHQHU9PslnN7WF3Pfxl/Claude-MCP?node-id=80-25865
 // source=ds/src/components/Radio/Radio.tsx
 // component=Radio
 const figma = require('figma')
