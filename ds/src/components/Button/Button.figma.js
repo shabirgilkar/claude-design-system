@@ -21,24 +21,15 @@ const fullWidth = instance.getBoolean('FullWidth')
 const loading = instance.getBoolean('Loading')
 const iconOnly = instance.getBoolean('IconOnly')
 const disabled = instance.getBoolean('Disabled')
-const children = instance.getString('Label')
-const leftIcon = instance.findInstance('LeftIcon')
-const rightIcon = instance.findInstance('RightIcon')
+const label = instance.getString('Label')
 
 export default {
   example: figma.tsx`<Button
-    variant="${variant}"
-    size="${size}"
-    pill={${pill}}
-    fullWidth={${fullWidth}}
-    loading={${loading}}
-    iconOnly={${iconOnly}}
-    disabled={${disabled}}
-    leftIcon={${leftIcon}}
-    rightIcon={${rightIcon}}
-  >
-    ${children}
-  </Button>`,
+  variant="${variant}"
+  size="${size}"${pill ? `\n  pill` : ''}${fullWidth ? `\n  fullWidth` : ''}${loading ? `\n  loading` : ''}${iconOnly ? `\n  iconOnly` : ''}${disabled ? `\n  disabled` : ''}
+>
+  ${label}
+</Button>`,
   imports: ['import { Button } from "@ds/components/Button"'],
   id: 'button',
   metadata: { nestable: true },

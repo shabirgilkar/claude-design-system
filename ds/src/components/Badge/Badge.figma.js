@@ -22,19 +22,16 @@ const shape = instance.getEnum('Shape', {
   Rect: 'rect',
 })
 const dot = instance.getBoolean('Dot')
-const icon = instance.findInstance('Icon')
-const children = instance.getString('Label')
+const label = instance.getString('Label')
 
 export default {
   example: figma.tsx`<Badge
-    variant="${variant}"
-    size="${size}"
-    shape="${shape}"
-    dot={${dot}}
-    icon={${icon}}
-  >
-    ${children}
-  </Badge>`,
+  variant="${variant}"
+  size="${size}"
+  shape="${shape}"${dot ? `\n  dot` : ''}
+>
+  ${label}
+</Badge>`,
   imports: ['import { Badge } from "@ds/components/Badge"'],
   id: 'badge',
   metadata: { nestable: true },

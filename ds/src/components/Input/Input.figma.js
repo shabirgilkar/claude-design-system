@@ -15,21 +15,15 @@ const error = instance.getString('Error')
 const required = instance.getBoolean('Required')
 const disabled = instance.getBoolean('Disabled')
 const placeholder = instance.getString('Placeholder')
-const leftIcon = instance.findInstance('LeftIcon')
-const rightIcon = instance.findInstance('RightIcon')
 
 export default {
   example: figma.tsx`<Input
-    size="${size}"
-    label="${label}"
-    hint="${hint}"
-    error="${error}"
-    placeholder="${placeholder}"
-    required={${required}}
-    disabled={${disabled}}
-    leftIcon={${leftIcon}}
-    rightIcon={${rightIcon}}
-  />`,
+  size="${size}"
+  label="${label}"
+  placeholder="${placeholder}"
+  hint="${hint}"
+  error="${error}"${required ? `\n  required` : ''}${disabled ? `\n  disabled` : ''}
+/>`,
   imports: ['import { Input } from "@ds/components/Input"'],
   id: 'input',
   metadata: { nestable: true },
