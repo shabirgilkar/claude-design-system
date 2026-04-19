@@ -4,7 +4,7 @@
 const figma = require('figma')
 const instance = figma.selectedInstance
 
-const variant = instance.getEnum('Variant', {
+const variant = instance.getEnum('Type', {
   Primary: 'primary',
   Secondary: 'secondary',
   Tertiary: 'tertiary',
@@ -12,23 +12,27 @@ const variant = instance.getEnum('Variant', {
   Ghost: 'ghost',
 })
 const size = instance.getEnum('Size', {
-  SM: 'sm',
-  MD: 'md',
-  LG: 'lg',
+  Small: 'sm',
+  Medium: 'md',
+  Large: 'lg',
 })
-const pill = instance.getBoolean('Pill')
-const fullWidth = instance.getBoolean('FullWidth')
-const loading = instance.getBoolean('Loading')
-const iconOnly = instance.getBoolean('IconOnly')
-const disabled = instance.getBoolean('Disabled')
+const state = instance.getEnum('State', {
+  Default: '',
+  Hover: '',
+  Focused: '',
+  Pressed: '',
+  Disabled: 'disabled',
+  Loading: 'loading',
+  Error: '',
+})
 const label = instance.getString('Label')
 
 export default {
   example: figma.tsx`<Button
   variant="${variant}"
-  size="${size}"${pill ? `\n  pill` : ''}${fullWidth ? `\n  fullWidth` : ''}${loading ? `\n  loading` : ''}${iconOnly ? `\n  iconOnly` : ''}${disabled ? `\n  disabled` : ''}
+  size="${size}"${state === 'disabled' ? `\n  disabled` : ''}${state === 'loading' ? `\n  loading` : ''}
 >
-  ${label}
+  ${label || 'Button'}
 </Button>`,
   imports: ['import { Button } from "@ds/components/Button"'],
   id: 'button',

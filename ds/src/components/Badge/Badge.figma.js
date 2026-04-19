@@ -4,12 +4,12 @@
 const figma = require('figma')
 const instance = figma.selectedInstance
 
-const variant = instance.getEnum('Variant', {
+const variant = instance.getEnum('Type', {
   Neutral: 'neutral',
+  Info: 'info',
   Success: 'success',
   Warning: 'warning',
   Error: 'error',
-  Info: 'info',
   Brand: 'brand',
 })
 const size = instance.getEnum('Size', {
@@ -21,16 +21,14 @@ const shape = instance.getEnum('Shape', {
   Pill: 'pill',
   Rect: 'rect',
 })
-const dot = instance.getBoolean('Dot')
-const label = instance.getString('Label')
 
 export default {
   example: figma.tsx`<Badge
   variant="${variant}"
   size="${size}"
-  shape="${shape}"${dot ? `\n  dot` : ''}
+  shape="${shape}"
 >
-  ${label}
+  Label
 </Badge>`,
   imports: ['import { Badge } from "@ds/components/Badge"'],
   id: 'badge',

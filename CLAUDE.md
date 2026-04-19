@@ -199,3 +199,33 @@ After any component modification, cascade theme checks:
 3. Verify light showcase readability — screenshot and check muted text areas
 4. Verify CSS token overrides exist in `[data-theme="light"]` block if new tokens were added
 5. Verify Storybook stories render in both themes (when decorator is set up)
+
+---
+
+## 10. Code Connect Rules
+
+Code Connect is what makes Figma Dev Mode show real React snippets with the selected variant values injected. Full details in `.claude/rules/figma-design-system.md` → §Code Connect.
+
+### 10.1 Hard rules
+- **Before writing or editing** `{Name}.figma.js`: call `mcp__figma-console__figma_get_component_details` and read the authoritative `variantAxes` — never assume property names
+- **Mirror Figma's exact casing** on enum keys (`Type` vs `Variant`, `Position` vs `Placement`, `Style` vs `Theme`)
+- **Mirror Figma's exact value labels** on enum options (`Small/Medium/Large` vs `SM/MD/LG` — Button uses the former)
+- **States are enums, not booleans** — `Checked`, `Disabled`, `Selected`, `Active`, `Error`, `ReadOnly` are usually `State` variant values in this system. Use `getEnum('State', ...)` and derive JSX boolean props via template conditionals.
+- **Never call `findInstance()`** — breaks publish with `sectionsToAdd is not iterable`
+- **Never add `getString`/`getBoolean` for properties that don't exist in Figma** — produces broken `variant=""` output
+- **Always republish after changes** — `cd ds && npx figma connect publish --token <PAT>` — then verify in Dev Mode
+
+### 10.2 Publish & verify loop
+1. Edit `.figma.js` templates
+2. `cd ds && npx figma connect publish --token <FIGMA_PAT>`
+3. Open component instance in Figma → Dev Mode panel
+4. Confirm snippet renders with real values (no empty `""`)
+5. Commit + push the `.figma.js` changes
+
+### 10.3 When a component's Figma variants change
+Cascade the update:
+1. `figma_get_component_details` → compare new `variantAxes` to current `.figma.js`
+2. Update enum keys/values to match
+3. Republish
+4. Update React component props if variant axes themselves changed
+5. Update Storybook stories + doc portal Props section

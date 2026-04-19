@@ -9,21 +9,21 @@ const size = instance.getEnum('Size', {
   MD: 'md',
   LG: 'lg',
 })
-const label = instance.getString('Label')
-const description = instance.getString('Description')
-const checked = instance.getBoolean('Checked')
-const indeterminate = instance.getBoolean('Indeterminate')
-const disabled = instance.getBoolean('Disabled')
+const state = instance.getEnum('State', {
+  Default: '',
+  Hover: '',
+  Focused: '',
+  Checked: 'checked',
+  Indeterminate: 'indeterminate',
+  Error: 'error',
+  Disabled: 'disabled',
+})
 
 export default {
   example: figma.tsx`<Checkbox
-    size="${size}"
-    label="${label}"
-    description="${description}"
-    checked={${checked}}
-    indeterminate={${indeterminate}}
-    disabled={${disabled}}
-  />`,
+  size="${size}"
+  label="Checkbox label"${state === 'checked' ? `\n  checked` : ''}${state === 'indeterminate' ? `\n  indeterminate` : ''}${state === 'disabled' ? `\n  disabled` : ''}${state === 'error' ? `\n  error` : ''}
+/>`,
   imports: ['import { Checkbox } from "@ds/components/Checkbox"'],
   id: 'checkbox',
   metadata: { nestable: true },

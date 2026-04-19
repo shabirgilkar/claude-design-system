@@ -10,27 +10,18 @@ const size = instance.getEnum('Size', {
   MD: 'md',
   LG: 'lg',
   XL: 'xl',
-  '2XL': '2xl',
 })
-const color = instance.getEnum('Color', {
-  Purple: 'purple',
-  Pink: 'pink',
-  Red: 'red',
-  Green: 'green',
-  Blue: 'blue',
+const type = instance.getEnum('Type', {
+  Image: 'image',
+  Initials: 'initials',
+  Icon: 'icon',
 })
-const src = instance.getString('Src')
-const alt = instance.getString('Alt')
-const initials = instance.getString('Initials')
 
 export default {
   example: figma.tsx`<Avatar
-    size="${size}"
-    color="${color}"
-    src="${src}"
-    alt="${alt}"
-    initials="${initials}"
-  />`,
+  size="${size}"
+  type="${type}"
+/>`,
   imports: ['import { Avatar } from "@ds/components/Avatar"'],
   id: 'avatar',
   metadata: { nestable: true },

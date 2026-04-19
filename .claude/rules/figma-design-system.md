@@ -156,6 +156,92 @@ IMPORTANT: Primitive tokens (`--p-*`) do NOT adapt per theme — only semantic t
 
 ---
 
+## Code Connect (Parserless Templates)
+
+IMPORTANT: Code Connect maps Figma components → React source so Dev Mode shows ready-to-paste snippets with the selected variant values injected. All templates use the **parserless `.figma.js` format**, co-located with the component source.
+
+### File Format
+
+`ds/src/components/{Name}/{Name}.figma.js`:
+
+```js
+// url=<Figma frame URL with node-id>
+// source=ds/src/components/{Name}/{Name}.tsx
+// component={ComponentName}
+const figma = require('figma')
+const instance = figma.selectedInstance
+
+const size = instance.getEnum('Size', { SM: 'sm', MD: 'md', LG: 'lg' })
+const state = instance.getEnum('State', {
+  Default: '',
+  Disabled: 'disabled',
+  Error: 'error',
+})
+
+export default {
+  example: figma.tsx`<Component
+  size="${size}"${state === 'disabled' ? `\n  disabled` : ''}${state === 'error' ? `\n  error="Error message"` : ''}
+/>`,
+  imports: ['import { Component } from "@ds/components/Component"'],
+  id: 'component',
+  metadata: { nestable: true },
+}
+```
+
+### Do's
+
+IMPORTANT: Always verify actual Figma variant property names BEFORE writing or editing a template.
+
+- **Fetch real property names first** — call `mcp__figma-console__figma_get_component_details` with the component name; the `variantAxes` array is the authoritative source
+- **Mirror Figma's exact casing** — if Figma says `Type`, use `getEnum('Type', ...)` — NOT `Variant`
+- **Mirror Figma's exact value labels** — if Figma uses `Small/Medium/Large` for size values, map those, NOT `SM/MD/LG`
+- **Treat `State` as an enum, not booleans** — states like `Checked`, `Disabled`, `Selected`, `Active`, `Error`, `ReadOnly` are usually **variant values**, not separate boolean properties. Use `getEnum('State', ...)` and derive boolean JSX props via template conditionals.
+- **Always republish after edits** — from the `ds/` folder run `npx figma connect publish --token <FIGMA_PAT>`
+- **Verify in Dev Mode** — open the component in Figma Dev Mode and confirm variant values resolve to real strings (not empty `""`)
+- **Keep templates minimal** — render only what exists in Figma; stub children text inline (e.g., `"Button"`, `"Tooltip content"`)
+
+### Don'ts
+
+- **Never assume property names** — `Variant`, `SM/MD/LG`, `Placement` may actually be `Type`, `Small/Medium/Large`, `Position` in Figma. Always verify.
+- **Never use `instance.findInstance('Icon')`** — causes `sectionsToAdd is not iterable` errors during publish. Omit icons from templates or use instance swap instead.
+- **Never add `getString`/`getBoolean` calls for properties that don't exist in Figma** — they silently return empty values and produce broken output like `variant=""`. Use literal strings in the template instead.
+- **Never include extra booleans that don't exist as variant axes** (e.g., `ShowIcon`, `ShowDot`) unless they are genuine component-level boolean properties in Figma.
+- **Never skip republish** — local edits to `.figma.js` don't update Dev Mode until `figma connect publish` runs successfully.
+
+### Actual Figma Variant Axes (this design system)
+
+| Component | Variant axes | Notes |
+|-----------|-------------|-------|
+| Button | `Type` (Primary/Secondary/Tertiary/Destructive/Ghost) + `Size` (**Small/Medium/Large**) + `State` | Size values spelled out, not abbreviations |
+| Badge | `Size` (SM/MD/LG) + `Type` (Neutral/Info/Success/Warning/Error/Brand) + `Shape` (Pill/Rect) | `Type` not `Variant` |
+| Input (TextInput) | `Size` + `State` (Default/Hover/Focused/Typing/Filled/Error/Disabled/ReadOnly) | |
+| Textarea (TextArea) | Same axes as Input | |
+| Dropdown | `Size` + `State` (…Open/Selected/Error/ReadOnly) | |
+| Checkbox | `Size` + `State` (…Checked/Indeterminate/Error) | Checked is a State, NOT a boolean |
+| Radio | `Size` + `State` (…Selected/Error) | Selected is a State, NOT a boolean |
+| Toggle | `Size` + `State` (…Active/Error) | Active (= "on") is a State, NOT a boolean |
+| Avatar | `Size` (XS/SM/MD/LG/**XL** — no 2XL) + `Type` (Image/Initials/Icon) | No `Color` axis |
+| Toast | `Type` only (Success/Error/Warning/Info/Neutral) | `Type` not `Variant` |
+| Tooltip | `Position` (Top/Bottom/Left/Right) + `Style` (Dark/Light) + `Type` (Simple/Descriptive) | `Position` not `Placement`; `Style` not `Theme` |
+| Tabs (TabItem) | `Size` + `State` + `Direction` (Horizontal/Vertical) | |
+
+### Debugging Workflow
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| `sectionsToAdd is not iterable` at publish time | `findInstance()` call on icon/child | Remove all `findInstance` calls |
+| Empty values in Dev Mode (`variant=""`, `size=""`) | Property name mismatch | Run `figma_get_component_details`, rename enum key |
+| State prop not applied in snippet | Treating state as boolean | Switch to `getEnum('State', ...)` + conditional template string |
+| Dev Mode still shows old snippet | Didn't republish | `npx figma connect publish --token <PAT>` from `ds/` |
+
+### Authentication
+
+- Figma Personal Access Token must have **Code Connect: Write** scope
+- Token passed via `--token <PAT>` flag or `FIGMA_ACCESS_TOKEN` env var
+- Never commit the token — pass it inline per publish session
+
+---
+
 ## File Locations Quick Reference
 
 ```

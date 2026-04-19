@@ -4,28 +4,29 @@
 const figma = require('figma')
 const instance = figma.selectedInstance
 
-const theme = instance.getEnum('Theme', {
-  Dark: 'dark',
-  Light: 'light',
-})
-const placement = instance.getEnum('Placement', {
+const placement = instance.getEnum('Position', {
   Top: 'top',
   Bottom: 'bottom',
   Left: 'left',
   Right: 'right',
 })
-const content = instance.getString('Content')
-const disabled = instance.getBoolean('Disabled')
+const theme = instance.getEnum('Style', {
+  Dark: 'dark',
+  Light: 'light',
+})
+const type = instance.getEnum('Type', {
+  Simple: 'simple',
+  Descriptive: 'descriptive',
+})
 
 export default {
   example: figma.tsx`<Tooltip
-    theme="${theme}"
-    placement="${placement}"
-    content="${content}"
-    disabled={${disabled}}
-  >
-    <button>Hover me</button>
-  </Tooltip>`,
+  placement="${placement}"
+  theme="${theme}"
+  content="Tooltip content"${type === 'descriptive' ? `\n  title="Tooltip title"` : ''}
+>
+  <button>Hover me</button>
+</Tooltip>`,
   imports: ['import { Tooltip } from "@ds/components/Tooltip"'],
   id: 'tooltip',
   metadata: { nestable: true },

@@ -9,22 +9,20 @@ const size = instance.getEnum('Size', {
   MD: 'md',
   LG: 'lg',
 })
-const label = instance.getString('Label')
-const labelPosition = instance.getEnum('LabelPosition', {
-  Left: 'left',
-  Right: 'right',
+const state = instance.getEnum('State', {
+  Default: '',
+  Hover: '',
+  Focused: '',
+  Active: 'active',
+  Error: 'error',
+  Disabled: 'disabled',
 })
-const checked = instance.getBoolean('Checked')
-const disabled = instance.getBoolean('Disabled')
 
 export default {
   example: figma.tsx`<Toggle
-    size="${size}"
-    label="${label}"
-    labelPosition="${labelPosition}"
-    checked={${checked}}
-    disabled={${disabled}}
-  />`,
+  size="${size}"
+  label="Toggle label"${state === 'active' ? `\n  checked` : ''}${state === 'disabled' ? `\n  disabled` : ''}${state === 'error' ? `\n  error` : ''}
+/>`,
   imports: ['import { Toggle } from "@ds/components/Toggle"'],
   id: 'toggle',
   metadata: { nestable: true },

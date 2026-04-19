@@ -4,18 +4,25 @@
 const figma = require('figma')
 const instance = figma.selectedInstance
 
-const label = instance.getString('Label')
-const description = instance.getString('Description')
-const checked = instance.getBoolean('Checked')
-const disabled = instance.getBoolean('Disabled')
+const size = instance.getEnum('Size', {
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+})
+const state = instance.getEnum('State', {
+  Default: '',
+  Hover: '',
+  Focused: '',
+  Selected: 'selected',
+  Error: 'error',
+  Disabled: 'disabled',
+})
 
 export default {
   example: figma.tsx`<Radio
-    label="${label}"
-    description="${description}"
-    checked={${checked}}
-    disabled={${disabled}}
-  />`,
+  size="${size}"
+  label="Radio label"${state === 'selected' ? `\n  checked` : ''}${state === 'disabled' ? `\n  disabled` : ''}${state === 'error' ? `\n  error` : ''}
+/>`,
   imports: ['import { Radio } from "@ds/components/Radio"'],
   id: 'radio',
   metadata: { nestable: true },

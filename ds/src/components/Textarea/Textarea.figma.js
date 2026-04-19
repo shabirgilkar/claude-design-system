@@ -1,29 +1,31 @@
 // url=https://www.figma.com/design/JHlhHQHU9PslnN7WF3Pfxl/Claude-MCP?node-id=56-914
 // source=ds/src/components/Textarea/Textarea.tsx
-// component=Textarea
+// component=Textarea (TextArea variant set)
 const figma = require('figma')
 const instance = figma.selectedInstance
 
-const label = instance.getString('Label')
-const hint = instance.getString('Hint')
-const error = instance.getString('Error')
-const placeholder = instance.getString('Placeholder')
-const required = instance.getBoolean('Required')
-const disabled = instance.getBoolean('Disabled')
-const showCharCount = instance.getBoolean('ShowCharCount')
-const resize = instance.getBoolean('Resize')
+const size = instance.getEnum('Size', {
+  SM: 'sm',
+  MD: 'md',
+  LG: 'lg',
+})
+const state = instance.getEnum('State', {
+  Default: '',
+  Hover: '',
+  Focused: '',
+  Typing: '',
+  Filled: '',
+  Error: 'error',
+  Disabled: 'disabled',
+  ReadOnly: 'readonly',
+})
 
 export default {
   example: figma.tsx`<Textarea
-    label="${label}"
-    hint="${hint}"
-    error="${error}"
-    placeholder="${placeholder}"
-    required={${required}}
-    disabled={${disabled}}
-    showCharCount={${showCharCount}}
-    resize={${resize}}
-  />`,
+  size="${size}"
+  label="Label"
+  placeholder="Placeholder"${state === 'error' ? `\n  error="Please enter a valid value"` : ''}${state === 'disabled' ? `\n  disabled` : ''}${state === 'readonly' ? `\n  readOnly` : ''}
+/>`,
   imports: ['import { Textarea } from "@ds/components/Textarea"'],
   id: 'textarea',
   metadata: { nestable: true },
