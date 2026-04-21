@@ -39,8 +39,10 @@ const preview: Preview = {
     (Story, context) => {
       const theme = context.globals.theme || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
-      document.body.style.backgroundColor =
-        theme === 'dark' ? '#0E071C' : '#F8F7FC';
+      // Drive body bg via the same semantic token the app uses so the
+      // light-mode override in tokens.css takes effect automatically.
+      document.body.style.backgroundColor = 'var(--ds-color-bg-page)';
+      document.body.style.color = 'var(--ds-color-fg-default)';
       return Story();
     },
   ],
